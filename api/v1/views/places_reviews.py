@@ -17,33 +17,33 @@ from models import storage
                  strict_slashes=False)
 def get_reviews_by_place(place_id):
     '''
-    Retrieves list of all Review objects of a Place
+    Retrieves list of all Review objects of a Place.
     '''
-    # Get Place object with given ID from storage
+    # Get Place object with given ID from storage.
     place = storage.get(Place, place_id)
     if not place:
-        # Return 404 error if Place object is not found
+        # Return 404 error if Place object is not found.
         abort(404)
 
-    # Get all Review objects of Place and convert them to dictionaries
+    # Get all Review objects of Place and convert them to dictionaries.
     reviews = [review.to_dict() for review in place.reviews]
     return jsonify(reviews)
 
 
-# Route for retrieving a specific Review object by ID
+# Route for retrieving a specific Review object by ID.
 @app_views.route('/reviews/<review_id>', methods=['GET'],
                  strict_slashes=False)
 def get_review(review_id):
     '''
-    Retrieves a Review object
+    Retrieves a Review object.
     '''
-    # Get Review object with given ID from storage
+    # Get Review object with given ID from storage.
     review = storage.get(Review, review_id)
     if review:
-        # Return Review object in JSON format
+        # Return Review object in JSON format.
         return jsonify(review.to_dict())
     else:
-        # Return 404 error if Review object is not found
+        # Return 404 error if Review object is not found.
         abort(404)
 
 
