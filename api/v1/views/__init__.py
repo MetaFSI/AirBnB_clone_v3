@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''
-Creating a Blueprint instance with `url_prefix` set to `/api/v1`.
+Create a Blueprint instance with `url_prefix` set to `/api/v1`.
 '''
 
 
