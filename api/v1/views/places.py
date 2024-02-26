@@ -15,32 +15,32 @@ from api.v1.views import app_views
 from models import storage
 
 
-# Route for retrieving all Place objects of a City
+# Route for retrieving all Place objects of a City.
 @app_views.route('/cities/<city_id>/places', methods=['GET'],
                  strict_slashes=False)
 def get_places_by_city(city_id):
     '''
-    Retrieves list of all Place objects of a City
+    Retrieves list of all Place objects of a City.
     '''
-    # Get City object with given ID from storage
+    # Get City object with given ID from storage.
     city = storage.get(City, city_id)
     if not city:
-        # Return 404 error if City object is not found
+        # Return 404 error if City object is not found.
         abort(404)
 
-    # Get all Place objects of City and convert them to dictionaries
+    # Get all Place objects of City and convert them to dictionaries.
     places = [place.to_dict() for place in city.places]
     return jsonify(places)
 
 
-# Route for retrieving a specific Place object by ID
+# Route for retrieving a specific Place object by ID.
 @app_views.route('/places/<place_id>', methods=['GET'],
                  strict_slashes=False)
 def get_place(place_id):
     '''
-    Retrieves a Place object
+    Retrieves a Place object.
     '''
-    # Get Place object with given ID from storage
+    # Get Place object with given ID from storage.
     place = storage.get(Place, place_id)
     if place:
         # Return Place object in JSON format
