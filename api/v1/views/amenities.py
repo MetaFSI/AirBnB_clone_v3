@@ -80,14 +80,14 @@ def create_amenity():
                  strict_slashes=False)
 def update_amenity(amenity_id):
     '''Updates an Amenity object'''
-    # Get Amenity object with given ID from storage
+    # Get Amenity object with given ID from storage.
     amenity = storage.get(Amenity, amenity_id)
     if amenity:
-        # Return 400 error if request data is not in JSON format
+        # Return 400 error if request data is not in JSON format.
         if not request.get_json():
             abort(400, 'Not a JSON')
 
-        # Get JSON data from request
+        # Get JSON data from request.
         data = request.get_json()
         ignore_keys = ['id', 'created_at', 'updated_at']
         # Update attributes of Amenity object with JSON data
