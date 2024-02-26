@@ -66,9 +66,9 @@ def create_amenity():
         # Return 400 error if 'name' key is missing in JSON data
         abort(400, 'Missing name')
 
-    # Create a new Amenity object with JSON data
+    # Create a new Amenity object with JSON data.
     amenity = Amenity(**data)
-    # Save Amenity object to storage
+    # Save Amenity object to storage.
     amenity.save()
     # Return newly created Amenity
     #   object in JSON format with 201 status code
