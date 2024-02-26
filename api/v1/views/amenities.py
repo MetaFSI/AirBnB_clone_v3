@@ -70,7 +70,7 @@ def create_amenity():
     amenity = Amenity(**data)
     # Save Amenity object to storage.
     amenity.save()
-    # Return newly created Amenity
+    # Return newly created Amenity.
     #   object in JSON format with 201 status code
     return jsonify(amenity.to_dict()), 201
 
