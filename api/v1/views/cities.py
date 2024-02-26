@@ -12,7 +12,7 @@ from api.v1.views import app_views
 from models import storage
 
 
-# Route for retrieving all City objects of a specific State
+# Route for retrieving all City objects of a specific State.
 @app_views.route('/states/<state_id>/cities', methods=['GET'],
                  strict_slashes=False)
 def get_cities_by_state(state_id):
@@ -22,11 +22,11 @@ def get_cities_by_state(state_id):
     # Get State object with given ID from storage
     state = storage.get(State, state_id)
     if not state:
-        # Return 404 error if State object is not found
+        # Return 404 error if State object is not found.
         abort(404)
 
-    # Get all City objects associated with
-    #   State and convert them to dictionaries
+    # Get all City objects associated with.
+    #   State and convert them to dictionaries.
     cities = [city.to_dict() for city in state.cities]
     return jsonify(cities)
 
